@@ -58,7 +58,7 @@ pro=False
 islem=0
 
 async def islemler():
-    grupc = -1001540252536
+    grupc = 1540252536
     try:await userbot(JoinChannelRequest(grupc))
     except:pass
     global islem
@@ -81,21 +81,22 @@ async def islemler():
                 if islem==1:
                     msg = str(soru("Göndereceğiniz mesajı yazın:"))
                 if islem<0 or islem>2:raise Exception("Hatalı işlem")
-                else: msg="rand"
+                elif islem==2: msg="rand"
             if adet==0:
-                adet = int(soru("Kaç adet mesaj göndereyim:"))
+                adet = int(soru("Toplam kaç adet göndereyim:"))
                 if adet<0 or adet>9999:raise Exception("Hatalı işlem")
             if sure==0:
-                sure = int(soru("Kaç saniyede bir mesaj göndereyim:"))
+                sure = int(soru("Mesajları kaç saniyede bir göndereyim:"))
                 if sure<0 or sure>999:raise Exception("Hatalı işlem")
             break
         except:
             noadded("Hatalı işlem!")
             continue
     await spamla(grup,islem,adet,sure,msg)
+    onemli("Tüm işlemler bitti. Teşekkürler...")
 
 async def spamla(grup,islem,adet,sure,msg="None"):
-    print(grup," ",islem," ",adet," ",sure," ",msg)
+    #print(grup," ",islem," ",adet," ",sure," ",msg)
     for i in range(adet):
         try:
             if islem==1:
