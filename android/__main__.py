@@ -101,8 +101,9 @@ async def spamla(grup,islem,adet,sure,msg="None"):
             if islem==1:
                 msg=msg
             elif islem==2 or msg=="rand":
-                msg=str(get_random_string(choice(range(19))))
+                msg=str(get_random_string(choice(range(1,20))))
             await userbot.send_message(grup, msg)
+
         except Exception as e:
             noadded(f"Mesaj gönderilemedi... Hata: {str(e)}")
         sleep(sure)
