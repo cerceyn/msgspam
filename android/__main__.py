@@ -122,7 +122,7 @@ async def main():
     userbot = await hesabagir()
     a = True
     while a:
-        try: userbot = await conn(userbot);await islemler(userbot)
+        try: userbot = await conn(userbot);await islemler()
         except Exception as e:
             if "deleted/deactivated" in str(e):
                 hata("Telegram adminleri hesabınızı yasaklamış olduğundan işlem yapılamıyor")
