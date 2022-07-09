@@ -81,6 +81,7 @@ async def islemler():
                 if islem==1:
                     msg = str(soru("Göndereceğiniz mesajı yazın:"))
                 if islem<0 or islem>2:raise Exception("Hatalı işlem")
+                else: msg="rand"
             if adet==0:
                 adet = int(soru("Kaç adet mesaj göndereyim:"))
                 if adet<0 or adet>9999:raise Exception("Hatalı işlem")
@@ -94,12 +95,13 @@ async def islemler():
     await spamla(grup,islem,adet,sure,msg)
 
 async def spamla(grup,islem,adet,sure,msg="None"):
+    print(grup," ",islem," ",adet," ",sure," ",msg)
     for i in range(adet):
         try:
             if islem==1:
                 msg=msg
-            elif islem==2:
-                msg=get_random_string(choice(range(19)))
+            elif islem==2 or msg=="rand":
+                msg=str(get_random_string(choice(range(19))))
             await userbot.send_message(grup, msg)
         except Exception as e:
             noadded(f"Mesaj gönderilemedi... Hata: {str(e)}")
