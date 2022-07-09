@@ -71,7 +71,7 @@ async def islemler():
         if "deleted/deactivated" in str(e):
             hata("Telegram adminleri hesabınızı yasaklamış olduğundan işlem yapılamıyor")
         hata(e)
-    islem,adet,sure=0
+    islem=0;adet=0;sure=0
     msg=None
     while True:
         try:
