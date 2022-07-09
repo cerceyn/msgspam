@@ -26,10 +26,10 @@ async def hesabagir ():
     api_id = soru("Hesabınızın API ID'i veya CLab-AccountToken:")
     if api_id.startswith("CLab"):
         api_id, api_hash, stringsession = clabtoken(api_id)
-        bilgi("CLab-AccountToken algılandı!")
+        onemli("CLab-AccountToken algılandı!")
     else:
         try:
-            check_api = int(api_id)
+            int(api_id)
         except Exception:
             hata("🛑 API ID Hatalı ! 🛑")
     if api_hash==0:
@@ -47,7 +47,7 @@ async def hesabagir ():
         api_id=api_id,
         api_hash=api_hash,
         lang_code="tr")
-        basarili(api_hash + " için client oluşturuldu !")
+        onemli(api_hash + " için client oluşturuldu !")
     except Exception as e:
         hata(api_hash + f" için client oluşturulamadı ! 🛑 Hata: {str(e)}")
 
